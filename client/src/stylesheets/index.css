@@ -1,0 +1,661 @@
+/* Add CSS */
+/* Add CSS stylesheet */
+
+html, body {
+  margin: 0;
+  /* height: fit-content;
+  position: relative; */
+}
+
+.fakeso {
+  height: 600px;
+}
+
+/* Styling for top header */
+
+#header {
+  background-color: lightgray;
+  text-align: center;
+  /*REMOVED position: relative; */
+   border-bottom: 3px solid black;
+  /*ADDED*/
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+}
+
+#site-name {
+  display: inline-block;
+  font-size: 36px;
+  padding: 20px 0px;
+  margin: 0px 0px;
+}
+#search-div {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  right: 0;
+  left: 90%;
+
+}
+#search-div-div {
+  display: inline-block;
+  position: relative;
+  width: 0px;
+}
+#search-inp {
+  float: right;
+  height: 30px;
+  font-size: 14px;
+  transform: translate(0, -50%);
+}
+
+.main{
+  display: flex;
+  /*ADDED*/
+  margin-top: 90px;
+  height: 100%;
+  /* overflow: hidden; */
+  position: relative;
+}
+
+/* Styling for left sidebar */
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  width: 15%;
+  padding: 5% 0%;
+  /*ADDED */
+  position: fixed;
+  left: 0;
+  border-right: 3px dotted black;
+  background-color: white;
+  z-index: 10;
+}
+
+div.menu-div {
+  padding: 5% 0% 5% 0%;
+  margin: 0% 0% 20% 0%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+a.menu {
+  text-align: center;
+  text-decoration: none;
+  color: blue;
+  font-size: 24px;
+}
+
+
+
+/* Styling for main content and container */
+
+.content {
+  /* height: 80%; */
+  width: 100%;
+  /*ADDED */
+  margin-left: 15%;
+  z-index: 1;
+  position: relative;
+}
+
+/* Styling for upper-content */
+
+.top-one {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin: 10px 40px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.top-one button {
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 50%;
+}
+
+.upper-content {
+  border-bottom: 3px dotted black;
+}
+
+.top-two {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 40px;
+  font-size: 20px;
+}
+
+#postNumberCount {
+  font-size: 24px;
+}
+
+
+.ask-btn {
+  background-color: rgb(0,157,255);
+  color: white;
+  font-size: 20px;
+  padding: 10px 10px;
+}
+
+.btn-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.three-btns {
+  font-size: 20px;
+}
+
+.askDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+
+/* Styling for posts */
+/*  */
+.post-container {
+  border-bottom: 3px dotted black;
+  display: flex;
+}
+
+.title-and-tags{
+  /* display: flex;
+  flex-direction: column; */
+  width: 500px;
+  margin: 0 15% 0 5%;
+  overflow-wrap: break-word;
+}
+
+.tag-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.tag-container > div {
+  width: inherit;
+  padding:5px 10px;
+  border:1px solid black;
+  border-radius: 10px;
+  margin: 0px 10px 10px 0px;
+  width: fit-content;
+  font-size: 18px;
+  text-align: center;
+  background-color: grey;
+  color: white;
+}
+
+.statsBox {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  width:20%;
+}
+
+.statsBox > p  {
+  margin-bottom: -10px;
+  text-align: center;
+}
+
+
+.post-title  {
+  font-size: 25px;
+  color:  rgb(0,157,255);
+}
+
+.date-user {
+  font-size:20px;
+  width: 200px;
+  margin: 0px 40px 0px auto;
+  text-align: end;
+  overflow-x: hidden;
+  
+}
+
+.user {
+  color:red;
+}
+
+#no-questions-text {
+  padding: 0% 20px;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+/* Styling for Tag Page */
+
+#upper-tag-content{
+  height: 200px;
+  width: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+#lower-tag-content{
+  position: relative;
+  height: auto;
+  width: inherit;
+  text-align: center;
+  overflow-x: auto;
+}
+
+#tag-num-box, #tag-page-title, #tag-button-container {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  height: inherit;
+  width: 33.33%;
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.tag-col {
+  float: left;
+  width: 33.33%;
+}
+
+#tag-col1 {
+  text-align: right;
+}
+
+#tag-col2 {
+  text-align: center;
+}
+
+#tag-col3 {
+  text-align: left;
+}
+
+.tag-cell {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  height: 48px;
+  width: 200px;
+  min-width: 200px;
+  padding: 12px;
+  margin-top: 40px;
+  border: 3px dotted black;
+  overflow: hidden;
+}
+
+.tag-partition{
+  width: 100%;
+  height: 1px;
+  margin-top: 40px;
+}
+
+.tag-cell-info {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+#tag-cell-link {
+  color: blue;
+}
+
+/* Styling for Answer Page */
+.top-ans-content, #bot-ans-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  overflow: auto;
+  max-height: 400px;
+  padding: 10px;
+}
+
+.ans-upper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  height: inherit;
+  width: inherit;
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.ans-stats, #ans-btn-container {
+  width: 5%;
+  padding-left: 10px;
+}
+
+.ans-page-tag-container {
+  width: 600px;
+  text-align: center;
+  padding: 5%;
+}
+
+#ans-page-title, #ans-page-description {
+  /* width: 30%; width: 65% */
+  /* padding: 0% 2.5%; */
+  width: 600px;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+#ans-page-description {
+  padding-left: 5%;
+  font-weight: normal;
+  font-size: 18px;
+}
+
+.answer-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px dotted black;
+  padding: 20px;
+}
+
+#user-date-box {
+  width: 15%;
+  font-size: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.answer-text {
+  width: 60%;
+  margin-right: 5%;
+  overflow-wrap: break-word;
+}
+
+.ans-user-and-date {
+  display: inline-block;
+  width: 24%;
+  text-align: end;
+  overflow:hidden;
+}
+
+.ans-user-and-date > p {
+  margin: 0;
+}
+
+#ans-reply-user {
+  color:green;
+}
+
+#answer-button {
+  width: 100px;
+  font-size:20px;
+  height: 50px;
+  margin: 50px 50px;
+  background-color: rgb(0,157,255);
+  color:white;
+}
+
+.answers-overflow {
+  height: 30%;
+  overflow-y:auto;
+}
+
+/*
+Issues with answer page right now
+- Button will shift to next line if there isn't enough space instead of overlapping
+- The text space of the description overruns into the data section
+- Expand top-ans-content or add overflow handler
+- For the username and date metadata, we need 2 separate divs, one for name and one for the date
+- The metadata needs to be changed in font
+*/
+
+/*Styling for ask question page */
+.question-form-container > form, .answer-form-container > form{
+  display: flex;
+  width: 50%;
+  padding: 20px 25%;
+  flex-direction: column;
+}
+
+.errorMsg {
+  color:red;
+  font-size:14px;
+}
+
+.postQuestion > p {
+  margin: 5px 0px;
+}
+
+.postQuestion>input{
+  height: 30px;
+  font-size: 15px;
+}
+
+.postQuestion>textarea {
+  height: 100px;
+  font-size: 15px;
+}
+
+.bottom-post {
+  display: flex;
+  margin: 35px 0px;
+}
+
+.bottom-post > button{
+  display: inline-block;
+  background-color: rgb(0,157,255);
+  color: white;
+  font-size: 20px;
+  width: 30%;
+  height: 50px;
+  margin-right: 40%;
+}
+
+.bottom-post>span {
+  color: red;
+  font-size: 18px;
+  padding-top: 30px;
+  width: 50%;
+}
+
+/* Styling for Answer Form */
+
+.postAnswer > p {
+  margin: 10px 0px;
+}
+
+.postAnswer>input{
+  height: 40px;
+  font-size: 15px;
+}
+
+.postAnswer>textarea {
+  height: 150px;
+  font-size: 15px;
+}
+
+/* welcome page */
+#welcome-button {
+  width: 100pxs;
+  font-size:20px;
+  height: 50px;
+  margin: 50px 50px;
+  background-color: rgb(0,157,255);
+  color:white;
+}
+
+.welcome {
+  margin-top: 10%;
+}
+
+.welcome > div{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  
+}
+
+/*log out and user button */
+.bottom-menu-div {
+  display: block;
+  position: absolute;
+  bottom: 25%;
+  width: 100%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.bottom-menu-div > div {
+  margin-bottom: 10px;
+}
+
+.bottom-menu-btn {
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 10px 10px;
+  width: 85%;
+}
+
+.userpf-stats {
+  border: 5px double black;
+  margin: 16px 32px;
+}
+
+.userpf-name {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  text-decoration: underline;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 16px;
+}
+
+.userpf-time {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 16px;
+}
+
+.userpf-rep {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 16px;
+}
+
+.userpf-btn {
+  color: white;
+  background-color: rgb(250, 65, 65);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-size: 24px;
+  font-family: Palatino, "URW Palladio L", serif;
+  padding: 8px;
+  margin-top: 16px;
+  border-width: 2px;
+}
+
+.userpf-content-ctn {
+  display: flex;
+  margin: 16px;
+}
+
+.userpf-content-title {
+  width: 70%;
+  display: grid;
+  align-items: center;  
+  color:  rgb(0,157,255);
+  font-size: 25px;
+}
+
+.userpf-content-info {
+  width: 15%;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  font-size: 18px;
+  color: gray;
+}
+
+.userpf-edit-delete-btn-ctn {
+  display: grid;
+  width: 10%;
+  margin: 0% 2.5%;
+  float: left;
+}
+
+.userpf-edit-delete-btn {
+  color: white;
+  font-size: 18px;
+  border-radius: 4px;
+  display: block;
+  height: 90%;
+  width: 100%;
+}
+
+.userpf-edit-btn {
+  background-color: rgb(60, 60, 250);
+  margin-bottom: 2.5%;
+  float: top;
+}
+
+.userpf-delete-btn {
+  background-color: rgb(250, 60, 60);
+  margin-top: 2.5%;
+  float: bottom;
+}
+
+.userpf-delete-user-ctn {
+  display: grid;
+  width: 10%;
+  margin: 0% 2.5%;
+  float: left;
+}
+
+.userpf-delete-user {
+  display: block;
+  border-radius: 4px;
+  background-color: rgb(250, 60, 60);
+  color: white;
+  font-size: 18px;
+  height: 100%;
+  width: 100%;
+}
+
+.inactive-btn {
+  background-color: gray !important;
+}
+
+.tag-edit-delete-btn-ctn {
+  display: inline-block;
+  text-align: center;
+  width: 200px;
+  min-width: 200px;
+  padding: 12px;
+}
+
+.tag-edit-delete-btn {
+  width: 45%;
+  color: white;
+  border-radius: 4px;
+}
+
+.tag-edit-btn {
+  background-color: rgb(60, 60, 250);
+  margin-right: 5%;
+  float: left;
+}
+
+.tag-delete-btn {
+  background-color: rgb(250, 60, 60);
+  margin-left: 5%;
+  float: right;
+}
