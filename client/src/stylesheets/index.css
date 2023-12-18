@@ -307,6 +307,54 @@ a.menu {
 }
 
 /* Styling for Answer Page */
+
+.up-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.first-third-content {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin-right: 2.5%;
+  margin-left: 2.5%;
+}
+
+.second-third-content {
+  display: flex;
+  flex-direction: column;
+  /* position: relative;
+  height: inherit; */
+  width: 70%;
+  margin-top: 50px;
+  text-align: center;
+  /* font-weight: bold; */
+  font-size: 24px;
+}
+
+.third-third-content {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin: 1.5% 2.5% 1.5% 2.5%;
+}
+
+#user-date-box {
+  padding: 20% 2.5% 0%;
+  width: 100%;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: left;
+}
+
+#vote-box, #ans-box, #view-box {
+  width: 50%;
+  text-align: center;
+  padding: 15% 0%;
+  font-size: 20px;
+}
+
 .top-ans-content, #bot-ans-content {
   display: flex;
   flex-direction: row;
@@ -316,7 +364,7 @@ a.menu {
   padding: 10px;
 }
 
-.ans-upper {
+/* .ans-upper {
   display: inline-flex;
   flex-direction: column;
   position: relative;
@@ -326,7 +374,7 @@ a.menu {
   text-align: center;
   font-weight: bold;
   font-size: 24px;
-}
+} */
 
 .ans-stats, #ans-btn-container {
   width: 5%;
@@ -336,7 +384,7 @@ a.menu {
 .ans-page-tag-container {
   width: 600px;
   text-align: center;
-  padding: 5%;
+  padding: 5% 0%;
 }
 
 #ans-page-title, #ans-page-description {
@@ -345,6 +393,10 @@ a.menu {
   width: 600px;
   text-align: left;
   overflow-wrap: break-word;
+}
+
+#ans-page-title {
+  font-weight: bold;
 }
 
 #ans-page-description {
@@ -360,12 +412,6 @@ a.menu {
   padding: 20px;
 }
 
-#user-date-box {
-  width: 15%;
-  font-size: 20px;
-  font-weight: normal;
-  text-align: left;
-}
 
 .answer-text {
   width: 60%;
@@ -398,7 +444,7 @@ a.menu {
 }
 
 .answers-overflow {
-  height: 30%;
+  height: 50%;
   overflow-y:auto;
 }
 

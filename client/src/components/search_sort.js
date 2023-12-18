@@ -137,24 +137,36 @@ function keywordSearch(keywordArr, modelQuestions) {
 function tagSearch(tagArray, modelTags, modelQuestions) {
   const tagIDs = [];
   const matchArr = [];
+  // console.log("All tags:" + JSON.stringify(modelTags));
+  // console.log("Tag:" + tagArray);
+  // console.log(modelQuestions);
 
   for (let tag of tagArray) {
     if (tag === undefined || tag === "") continue;
     for (let tagData of modelTags) {
+      // console.log(tagData);
+      // console.log(tag);
       if (tag.toLowerCase() === tagData.name.toLowerCase()) {
         tagIDs.push(tagData._id);
         break;
       }
     }
   }
+  // console.log(tagIDs);
 
   for (let tag of tagIDs) {
     for (let qData of modelQuestions) {
-      if (qData.tags.includes(tag)) {
+      console.log(qData);
+      console.log(tag);
+      // if (qData.tags.includes({_id: tag})) {
+      //   matchArr.push(qData);
+      // }
+      if (qData.tags.some(tagObj => tagObj._id === tag)) {
         matchArr.push(qData);
       }
     }
   }
+  console.log(JSON.stringify(matchArr));
 
   const returnArr = matchArr.filter(function (value, index) {
     if (matchArr.indexOf(value) === index) return true;

@@ -19,6 +19,7 @@ Deleting Tag
 */
 
 function TagPage(props) {
+    // console.log(props.modelTags)
     const [username, setUsername] = useState("");
     const [tagsList, setTags] = useState([]);
     
@@ -144,6 +145,7 @@ function TagPageCol(props) {
     
     for (let i = 0; i < props.tagsArr.length; i++){
         let tag = props.tagsArr[i];
+        console.log("Tag:" + JSON.stringify(tag));
         finalCol.push( <TagPageCell name={props.name} key={tag.name} cellInfo={tag} modelTags = {props.tagsArr} modelQuestions={props.modelQuestions} update={props.update} merge={props.merge} handlers={props.handlers} /> );
         finalCol.push( <TagPagePartition key={tag._id}/> );
     }
@@ -157,6 +159,7 @@ function TagPageCol(props) {
 
 function TagPageCell(props) {
     let qArr = tagSearch([props.cellInfo.name], props.modelTags, props.modelQuestions);
+    // console.log(props.modelQuestions);
 
     qArr = sortResults("newest", qArr);
 

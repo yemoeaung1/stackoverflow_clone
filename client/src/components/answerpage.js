@@ -13,8 +13,9 @@ export default function AnswerPage({ pageData, handlers, user }) {
   const [isUpdated, setIsUpdated] = useState(false);
     //questionVote
   const [votes, setVotes] = useState(question.votes);
+  // console.log(question);
 
-  const answersPerPage = 2;
+  const answersPerPage = 5;
   let TotalPages = Math.ceil(answers.length / answersPerPage);
   // console.log("Total Pages: " + TotalPages)
 
@@ -27,33 +28,32 @@ export default function AnswerPage({ pageData, handlers, user }) {
     };
     if (isUpdated === false) return;
 
-    setIsUpdated(false);
-    // console.log("Qid " + pageData._id);
+    // setIsUpdated(false);
     fetchQuestion();
   }, []);
 
 
-  useEffect(() => {
-    console.log("in use effect");
-    console.log(`Answers:${answers}`)
-    let start = answerPage * answersPerPage;
-    let end = start + answersPerPage;
-    console.log("indices: " + start + " to " + end);
+  // useEffect(() => {
+  //   console.log("in use effect");
+  //   console.log(`Answers:${answers}`)
+  //   let start = answerPage * answersPerPage;
+  //   let end = start + answersPerPage;
+  //   console.log("indices: " + start + " to " + end);
 
-    // Calculate the starting and ending indices based on the current questionPage
-    const startIndex = answerPage * answersPerPage;
-    const endIndex = startIndex + answersPerPage;
+  //   // Calculate the starting and ending indices based on the current questionPage
+  //   const startIndex = answerPage * answersPerPage;
+  //   const endIndex = startIndex + answersPerPage;
 
-    // Update the visibleQuestions array based on the calculated indices
-    const newVisibleAnswers = answers.slice(startIndex, endIndex);
+  //   // Update the visibleQuestions array based on the calculated indices
+  //   const newVisibleAnswers = answers.slice(startIndex, endIndex);
 
-    // Update the state to re-render the component with the new visibleQuestions
-    if(isUpdated) {
-      setVisibleAnswers(newVisibleAnswers);
-    }
-    setIsUpdated(false);
+  //   // Update the state to re-render the component with the new visibleQuestions
+  //   if(isUpdated) {
+  //     setVisibleAnswers(newVisibleAnswers);
+  //   }
+  //   setIsUpdated(false);
   
-  }, [isUpdated]);
+  // }, [isUpdated]);
 
   //gonna run everytime question object changes
   useEffect(() => {
@@ -79,8 +79,8 @@ export default function AnswerPage({ pageData, handlers, user }) {
         allAnswers = sortResults("sortanswer", allAnswers);
         // Once all answers have been fetched, set the visibleAnswers state
         setAnswers(allAnswers);
-        setVisibleAnswers(() => allAnswers.slice(0,2)); // Assuming setvisibleAnswers is your state setter;
-        // console.log(visibleAnswers);
+        setVisibleAnswers(() => allAnswers.slice(0, answersPerPage)); // Assuming setvisibleAnswers is your state setter;
+        console.log(visibleAnswers);
       }
     };
     fetchData();
@@ -117,6 +117,7 @@ export default function AnswerPage({ pageData, handlers, user }) {
     } else {
       setAnswerPage(0);
     }
+    setIsUpdated(true);
   };
 
   const processVote = async (questionID, vote) => {
@@ -140,13 +141,66 @@ export default function AnswerPage({ pageData, handlers, user }) {
     }
   };
 
-  if (visibleAnswers.length === 0 || question === undefined) {
+  if (visibleAnswers===undefined || question === undefined) {
     return;
   } else {
   // console.log(JSON.stringify(answers));
   return (
     <>
-      <div className="upper-content">
+      <div className="up-content upper-content">
+        <div className="first-third-content">
+          <VoteCount questionID={question._id} votes={votes} processVote={processVote}/>
+          <AnswerCount answers={answers} />
+          <ViewCount views={question.views} />
+        </div>
+        <div className="second-third-content">
+          <QuestionTitle title={question.title} />
+          <span>
+            <div>
+              <span className="ans-upper" id="ans-page-description">
+                {question.text && constructTextWithHyperlink(question.text)}
+              </span>
+              <div className="tag-container ans-page-tag-container">
+                <QuestionTags tags={question.tags} />
+              </div>
+            </div>
+          </span>
+        </div>
+        <div className="third-third-content">
+          <div className="btn-ctn">
+              <AskQuestionButton handlers={handlers} user={user} />
+          </div>
+          <UserandDateBox question={question} showDateMetadata={showDateMetadata} getLocaleString={getLocaleString}/>   
+        </div>
+      </div>
+      {visibleAnswers && <Answers sorted_answers={visibleAnswers}/>}
+      <div style={{ textAlign: "center" }}>
+        <span>
+          {answerPage > 0 && (
+            <button onClick={() => showPrevSetOfQuestion(answerPage)}>
+              Prev
+            </button>
+          )}
+          <button onClick={() => showNextSetOfQuestion(answerPage)}>
+            Next
+          </button>
+        </span>
+      </div>
+      {/* <button
+        id="answer-button"
+        onClick={handleAskButtonClick}
+        sid="answer-button"
+      >
+        Answer Question
+      </button> */}
+      <AnswerQuestionButton
+        handlers={handlers}
+        question={question}
+        user={user}
+      />
+    </>
+  )
+      {/* <div className="upper-content">
         <div className="top-ans-content">
           <VoteCount questionID={question._id} votes={votes} processVote={processVote}/>
           <AnswerCount answers={answers} />
@@ -177,20 +231,20 @@ export default function AnswerPage({ pageData, handlers, user }) {
           type={"question"}
           setIsUpdated={setIsUpdated}
         /> */}
-      </div>
-      {visibleAnswers && <Answers sorted_answers={visibleAnswers}/>}
-      <div style={{ textAlign: "center" }}>
-        <span>
-          {answerPage > 0 && (
-            <button onClick={() => showPrevSetOfQuestion(answerPage)}>
-              Prev
-            </button>
-          )}
-          <button onClick={() => showNextSetOfQuestion(answerPage)}>
-            Next
-          </button>
-        </span>
-      </div>
+      // </div>
+      // {visibleAnswers && <Answers sorted_answers={visibleAnswers}/>}
+      // <div style={{ textAlign: "center" }}>
+      //   <span>
+      //     {answerPage > 0 && (
+      //       <button onClick={() => showPrevSetOfQuestion(answerPage)}>
+      //         Prev
+      //       </button>
+      //     )}
+      //     <button onClick={() => showNextSetOfQuestion(answerPage)}>
+      //       Next
+      //     </button>
+      //   </span>
+      // </div>
       {/* <button
         id="answer-button"
         onClick={handleAskButtonClick}
@@ -198,13 +252,13 @@ export default function AnswerPage({ pageData, handlers, user }) {
       >
         Answer Question
       </button> */}
-      <AnswerQuestionButton
-        handlers={handlers}
-        question={question}
-        user={user}
-      />
-    </>
-  );
+      // <AnswerQuestionButton
+      //   handlers={handlers}
+      //   question={question}
+      //   user={user}
+      // />
+    // </> */}
+  // );
   }
 }
 
@@ -471,7 +525,7 @@ function Comment({ comment }) {
 function VoteCount({questionID, votes, processVote}) {
   return (
     <span>
-      <div className="vote-box ans-upper">
+      <div id="vote-box" className="ans-upper">
         <button onClick={() => processVote(questionID, "1")}>Up</button>
         <div style={{ textAlign: "center" }}>{votes} votes</div>
         <button onClick={() => processVote(questionID, "-1")}>Down</button>

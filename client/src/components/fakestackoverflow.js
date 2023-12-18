@@ -38,6 +38,7 @@ export default function FakeStackOverflow({ logOut, user, welcomePage }) {
     try {
       const res = await axios.get("http://localhost:8000/tags");
       setTagsArr(res.data);
+      console.log("tags:" + tagsArr)
     } catch (err) {
       console.error(err);
     }
