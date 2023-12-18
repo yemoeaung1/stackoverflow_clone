@@ -33,27 +33,27 @@ export default function AnswerPage({ pageData, handlers, user }) {
   }, []);
 
 
-  // useEffect(() => {
-  //   console.log("in use effect");
-  //   console.log(`Answers:${answers}`)
-  //   let start = answerPage * answersPerPage;
-  //   let end = start + answersPerPage;
-  //   console.log("indices: " + start + " to " + end);
+  useEffect(() => {
+    console.log("in use effect");
+    console.log(`Answers:${answers}`)
+    let start = answerPage * answersPerPage;
+    let end = start + answersPerPage;
+    console.log("indices: " + start + " to " + end);
 
-  //   // Calculate the starting and ending indices based on the current questionPage
-  //   const startIndex = answerPage * answersPerPage;
-  //   const endIndex = startIndex + answersPerPage;
+    // Calculate the starting and ending indices based on the current questionPage
+    const startIndex = answerPage * answersPerPage;
+    const endIndex = startIndex + answersPerPage;
 
-  //   // Update the visibleQuestions array based on the calculated indices
-  //   const newVisibleAnswers = answers.slice(startIndex, endIndex);
+    // Update the visibleQuestions array based on the calculated indices
+    const newVisibleAnswers = answers.slice(startIndex, endIndex);
 
-  //   // Update the state to re-render the component with the new visibleQuestions
-  //   if(isUpdated) {
-  //     setVisibleAnswers(newVisibleAnswers);
-  //   }
-  //   setIsUpdated(false);
+    // Update the state to re-render the component with the new visibleQuestions
+    if(isUpdated) {
+      setVisibleAnswers(newVisibleAnswers);
+    }
+    setIsUpdated(false);
   
-  // }, [isUpdated]);
+  }, [isUpdated]);
 
   //gonna run everytime question object changes
   useEffect(() => {
